@@ -1,3 +1,4 @@
+
 name: Build and deploy to Azure App Service
 
 on:
@@ -5,13 +6,12 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Required for OpenID Connect (no stored Azure passwords/secrets).
 permissions:
   id-token: write
   contents: read
 
 env:
-  NODE_VERSION: '20.x'
+  NODE_VERSION: '24.x'
 
 jobs:
   build:
@@ -27,11 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build React frontend
-        run: npm run build
-
       - name: Run tests
         run: npm test
+
+      - name: Build React frontend
+        run: npm run build
 
       - name: Remove dev dependencies
         run: npm prune --omit=dev
@@ -48,13 +48,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment: production
+
     steps:
       - uses: actions/download-artifact@v4
         with:
           name: release
 
-      # OIDC login. These three IDs are identifiers, not passwords, but are
-      # stored as repository secrets/variables so nothing is hardcoded here.
       - name: Azure login (OIDC)
         uses: azure/login@v2
         with:
