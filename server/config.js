@@ -11,7 +11,7 @@ export function loadConfig(env = process.env) {
     geminiApiKey: env.GEMINI_API_KEY || '',
     geminiModel: env.GEMINI_MODEL || 'gemini-3.6-flash',
     geminiTimeoutMs: toInt(env.GEMINI_TIMEOUT_MS, 30000),
-    randomKey: env.RANDOM_KEY ?? null,
+    randomKey: env.RANDON_KEY ?? null,
     corsOrigin: env.CORS_ORIGIN || '',
     rateLimitMax: toInt(env.RATE_LIMIT_MAX, 30),
     rateLimitWindowMs: toInt(env.RATE_LIMIT_WINDOW_MS, 60000),
