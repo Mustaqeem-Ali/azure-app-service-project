@@ -1,0 +1,30 @@
+{
+  "name": "gemini-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "React + Express Gemini chatbot, deployable to a single Azure Linux App Service",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "sanitize-html": "^2.14.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.11"
+  }
+}
