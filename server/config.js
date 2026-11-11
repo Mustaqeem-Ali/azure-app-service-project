@@ -9,7 +9,7 @@ export function loadConfig(env = process.env) {
   return {
     port: toInt(env.PORT, 3000),
     geminiApiKey: env.GEMINI_API_KEY || '',
-    geminiModel: env.GEMINI_MODEL || 'gemini-2.5-flash',
+    geminiModel: env.GEMINI_MODEL || 'gemini-3.6-flash',
     geminiTimeoutMs: toInt(env.GEMINI_TIMEOUT_MS, 30000),
     randomKey: env.RANDOM_KEY ?? null,
     corsOrigin: env.CORS_ORIGIN || '',
